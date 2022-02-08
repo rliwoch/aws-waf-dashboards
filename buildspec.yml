@@ -12,7 +12,6 @@ phases:
       - pip install --target ./package -r requirements.txt
   build:
     commands:
-      - cd package
       - zip -r ../../os-customizer-lambda.zip package/ src/
   post_build:
     commands:
