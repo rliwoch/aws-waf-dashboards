@@ -1,4 +1,4 @@
 .directory
 .DS_Store
-cloudformation-custom-resources/kibana-customizer-lambda/venv
+cloudformation-custom-resources/os-customizer-lambda/venv
 .idea

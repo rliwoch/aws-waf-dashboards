@@ -50,7 +50,7 @@ Resources:
           - ''
           - - 'waf-dashboards-'
             - !Ref "AWS::Region"
-        S3Key: "es-cognito-auth-lambda.zip"
+        S3Key: "os-cognito-auth-lambda.zip"
       Runtime: "python3.7"
       MemorySize: 128
       Timeout: 900
@@ -65,7 +65,7 @@ Resources:
           - ''
           - - 'waf-dashboards-'
             - !Ref "AWS::Region"
-        S3Key: "kibana-customizer-lambda.zip"
+        S3Key: "os-customizer-lambda.zip"
       Runtime: "python3.7"
       MemorySize: 128
       Timeout: 160
@@ -449,7 +449,7 @@ Resources:
           - ''
           - - 'waf-dashboards-'
             - !Ref "AWS::Region"
-        S3Key: "kibana-customizer-lambda.zip"
+        S3Key: "os-customizer-lambda.zip"
       Runtime: "python3.7"
       MemorySize: 128
       Timeout: 160

@@ -9,8 +9,8 @@ for region in regions:
     bucket_name = bucket_prefix + region
     
     file1 = 'domain-setter-lambda.zip'
-    file2 = 'es-cognito-auth-lambda.zip'
-    file3 = 'kibana-customizer-lambda.zip'
+    file2 = 'os-cognito-auth-lambda.zip'
+    file3 = 'os-customizer-lambda.zip'
 
     s3 = boto3.resource('s3')
     s3.Bucket(bucket_name).upload_file(file1,file1)

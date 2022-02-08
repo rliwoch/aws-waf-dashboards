@@ -14,13 +14,13 @@ for region in regions:
     boto3.resource('s3').Bucket(bucket_name).upload_file("domain-setter-lambda.zip", 'domain-setter-lambda.zip')
     boto3.client('s3', region_name=region).put_object_acl(ACL='public-read',Bucket=bucket_name,Key='domain-setter-lambda.zip');
     
-    #Copying es-cognito-auth-lambda.zip
-    boto3.resource('s3').Bucket(bucket_name).upload_file("es-cognito-auth-lambda.zip", 'es-cognito-auth-lambda.zip')
-    boto3.client('s3', region_name=region).put_object_acl(ACL='public-read',Bucket=bucket_name,Key='es-cognito-auth-lambda.zip');
+    #Copying os-cognito-auth-lambda.zip
+    boto3.resource('s3').Bucket(bucket_name).upload_file("os-cognito-auth-lambda.zip", 'os-cognito-auth-lambda.zip')
+    boto3.client('s3', region_name=region).put_object_acl(ACL='public-read',Bucket=bucket_name,Key='os-cognito-auth-lambda.zip');
     
-    #Copying kibana-customizer-lambda.zip
-    boto3.resource('s3').Bucket(bucket_name).upload_file("kibana-customizer-lambda.zip", 'kibana-customizer-lambda.zip')
-    boto3.client('s3', region_name=region).put_object_acl(ACL='public-read',Bucket=bucket_name,Key='kibana-customizer-lambda.zip');
+    #Copying os-customizer-lambda.zip
+    boto3.resource('s3').Bucket(bucket_name).upload_file("os-customizer-lambda.zip", 'os-customizer-lambda.zip')
+    boto3.client('s3', region_name=region).put_object_acl(ACL='public-read',Bucket=bucket_name,Key='os-customizer-lambda.zip');
     
     
     #s3 = boto3.client('s3', region_name=region)
