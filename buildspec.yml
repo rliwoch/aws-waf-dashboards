@@ -8,7 +8,7 @@ phases:
       - python -V
   pre_build:
     commands:
-      - cd cloudformation-custom-resources/os-cognito-auth-lambda
+      - cd cloudformation-custom-resources/os-customizer-lambda
       - pip install --target ./package -r requirements.txt
   build:
     commands:
