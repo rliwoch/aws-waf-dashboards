@@ -14,11 +14,11 @@ phases:
       - echo Preparing os-cognito-auth-lambda
       - cd ../os-cognito-auth-lambda
       - pwd
-      - pip install -target ./package -r requirements.txt
+      - pip install --target ./package -r requirements.txt
       - echo Preparing domain-setter-lambda
       - cd ../domain-setter-lambda
       - pwd
-      - pip install -target ./package -r requirements.txt
+      - pip install --target ./package -r requirements.txt
   build:
     commands:
       - zip -r ../../os-customizer-lambda.zip package/ src/
