@@ -1,8 +1,18 @@
-pre_build:
-  commands:
-    - pip3 install awscli --upgrade --user
-build:
-  commands:
-    - cd cloudformation-custom-resources/os-customizer-lambda
-    - ls -lah
-    - pip install requests
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Setting up stuff...
+      - cd cloudformation-custom-resources/os-cognito-auth-lambda
+      - ls -lah
+  pre_build:
+    commands:
+  build:
+    commands:
+  post_build:
+    commands:
+artifacts:
+  files:
+#    - HelloWorld.jar
+
