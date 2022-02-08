@@ -4,15 +4,19 @@ phases:
   install:
     commands:
       - echo Setting up stuff...
-      - cd cloudformation-custom-resources/os-cognito-auth-lambda
-      - ls -lah
+      - python -m pip install --upgrade pip
+      - python -V
   pre_build:
     commands:
+      - cd cloudformation-custom-resources/os-cognito-auth-lambda
+      - pip install --target ./package -r requirements.txt
   build:
     commands:
+      - cd package
+      - zip -r ../../os-customizer-lambda.zip package/ src/
   post_build:
     commands:
 artifacts:
   files:
-#    - HelloWorld.jar
+    - os-customizer-lambda.zip
 
