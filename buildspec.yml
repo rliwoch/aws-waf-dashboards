@@ -1,0 +1,8 @@
+pre_build:
+  commands:
+    - pip3 install awscli --upgrade --user
+build:
+  commands:
+    - cd cloudformation-custom-resources/os-customizer-lambda
+    - ls -lah
+    - pip install requests
