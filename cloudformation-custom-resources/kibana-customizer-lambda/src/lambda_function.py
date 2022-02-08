@@ -8,7 +8,7 @@ import boto3
 import requests
 from crhelper import CfnResource
 from furl import furl
-from opensearchpy import OpenSearch
+from opensearchpy import OpenSearch, RequestsHttpConnection
 
 from placeholder_resolver import resolve_placeholders
 from service_settings import ServiceSettings
@@ -31,9 +31,12 @@ try:
 
     opensearch_client = OpenSearch(
         hosts=[{'host': "localhost", 'port': 9200}],  # TODO
-        http_compress=False,
         http_auth=service_settings.aws_auth,
-        use_ssl=True)
+        use_ssl=True,
+        verify_certs=True,
+        ssl_assert_hostname=False,
+        ssl_show_warn=False,
+        connection_class=RequestsHttpConnection)
 
 except Exception as e:
     helper.init_failure(e)
@@ -44,6 +47,9 @@ except Exception as e:
 @helper.create
 def create(event=None, context=None):
     logger.info("Got Create!")
+    logger.debug("Sourcing additional settings from the event")
+
+    service_settings.source_settings_from_event(event)
     import_index_templates(solution_components.templates)
     action_dashboard_objects('POST')
 
@@ -53,12 +59,18 @@ def create(event=None, context=None):
 @helper.update
 def update(event=None, context=None):
     logger.info("Got Update.")
+    logger.debug("Sourcing additional settings from the event")
+
+    service_settings.source_settings_from_event(event)
     recycle_dashboards_objects()
 
 
 @helper.delete
 def delete(event=None, context=None):
     logger.info("Got Delete")
+    logger.debug("Sourcing additional settings from the event")
+
+    service_settings.source_settings_from_event(event)
     delete_index_templates()
     delete_dashboards_objects()
 

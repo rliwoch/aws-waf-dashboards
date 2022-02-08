@@ -33,3 +33,14 @@ class ServiceSettings:
             "index_patterns": "index_pattern",
             "visualizations": "visualization"
         }
+
+    def source_settings_from_event(self, event):
+        self.region = event['ResourceProperties']['Region']
+        self.host = event['ResourceProperties']['Host']
+        self.account_id = event['ResourceProperties']['AccountID']
+        self.aws_auth = AWS4Auth(
+            self.credentials.access_key,
+            self.credentials.secret_key,
+            self.region,
+            self.service,
+            session_token=self.credentials.token)
