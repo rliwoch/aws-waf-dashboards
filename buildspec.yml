@@ -21,7 +21,10 @@ phases:
 #      - pip install --target ./package -r requirements.txt
   build:
     commands:
-      - zip -r ../../os-customizer-lambda.zip package/ src/
+      - zip -r ../../os-customizer-lambda.zip package/
+      - zip -r ../../os-customizer-lambda.zip src/dashboards_definitions_json
+      - zip -r ../../os-customizer-lambda.zip src/helpers
+      - zip -r ../../os-customizer-lambda.zip src/lambda_function.py
 #      - cd ../os-cognito-auth-lambda
 #      - zip -r ../../os-cognito-auth-lambda.zip package/ src/
 #      - cd ../domain-setter-lambda
