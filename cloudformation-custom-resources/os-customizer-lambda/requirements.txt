@@ -1,4 +1,4 @@
-boto3==1.20.50
+# not needed in aws boto3==1.20.50
 crhelper==2.0.10
 furl==2.1.3
 requests==2.25.1
