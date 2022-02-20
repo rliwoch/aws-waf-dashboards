@@ -2,3 +2,4 @@
 .DS_Store
 cloudformation-custom-resources/os-customizer-lambda/venv
 .idea
+cloudformation-custom-resources/*/package
