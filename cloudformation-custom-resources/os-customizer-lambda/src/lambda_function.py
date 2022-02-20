@@ -128,7 +128,7 @@ def call_dashboards_api_for_resource(method, resource_type, resource_name, resou
     @param resource_body: stringified JSON body
     """
     f = furl(service_settings.host)
-    f.add(path=['api', 'saved_objects', resource_type, resource_name])
+    f.add(path=['_dashboards', 'api', 'saved_objects', resource_type, resource_name])
 
     if service_settings.dashboards_port:
         f.port = service_settings.dashboards_port
