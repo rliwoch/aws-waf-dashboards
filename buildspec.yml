@@ -22,7 +22,7 @@ phases:
   build:
     commands:
       - cp -R src/helpers/ package/
-      - cp -R src/dashboards_definitions_json/ package/src/
+      - cp -R src/dashboards_definitions_json/ package/src/dashboards_definitions_json
       - cp -R src/lambda_function.py package/
       - cd package
       - zip -r ../../../os-customizer-lambda.zip .
