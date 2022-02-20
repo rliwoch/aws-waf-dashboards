@@ -30,7 +30,7 @@ try:
     service_settings = ServiceSettings(credentials=boto3.Session().get_credentials())
 
     opensearch_client = OpenSearch(
-        hosts=[{'host': service_settings.host, 'port': 443}],
+        hosts=[{'host': service_settings.host}],
         http_auth=service_settings.aws_auth,
         use_ssl=True,
         verify_certs=True,
