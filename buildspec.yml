@@ -22,6 +22,8 @@ phases:
   build:
     commands:
       - cp -R src/helpers/ package/
+      - mkdir package/src
+      - mkdir package/dashboards_definitions_json
       - cp -R src/dashboards_definitions_json/ package/src/dashboards_definitions_json
       - cp -R src/lambda_function.py package/
       - cd package
