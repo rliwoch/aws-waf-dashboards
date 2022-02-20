@@ -14,7 +14,7 @@ class ServiceSettings:
         self.dashboards_port = os.environ.get("DASHBOARDS_PORT", "")
         self.account_id = account_id
         self.region = region
-        self.host = host
+        self.host = "https://" + host
         self.credentials = credentials
         self.aws_auth = aws_auth
         self.service = service
