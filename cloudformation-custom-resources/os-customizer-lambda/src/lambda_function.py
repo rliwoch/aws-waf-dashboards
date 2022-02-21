@@ -29,6 +29,8 @@ try:
     solution_components = SolutionComponents()
     service_settings = ServiceSettings(credentials=boto3.Session().get_credentials())
 
+    logger.info("OpenSearch client URL %s", service_settings.host)
+
     opensearch_client = OpenSearch(
         hosts=[{'host': service_settings.host}],
         http_auth=service_settings.aws_auth,
