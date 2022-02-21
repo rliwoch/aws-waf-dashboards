@@ -1,6 +1,11 @@
 import os
+import logging
+import sys
 
 from requests_aws4auth import AWS4Auth
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 class ServiceSettings:
@@ -35,9 +40,13 @@ class ServiceSettings:
         }
 
     def source_settings_from_event(self, event):
-        self.region = event['ResourceProperties']['Region']
-        self.host = event['ResourceProperties']['Host']
-        self.account_id = event['ResourceProperties']['AccountID']
+        try:
+            self.region = event['ResourceProperties']['Region']
+            self.host = event['ResourceProperties']['Host']
+            self.account_id = event['ResourceProperties']['AccountID']
+        except KeyError:
+            logging.info("Event not triggered through Custom Resource - ResourceProperties not available. Defaulting to Env Vars")
+
         self.aws_auth = AWS4Auth(
             self.credentials.access_key,
             self.credentials.secret_key,
