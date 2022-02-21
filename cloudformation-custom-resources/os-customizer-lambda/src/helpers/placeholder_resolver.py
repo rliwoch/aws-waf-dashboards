@@ -1,3 +1,10 @@
+import logging
+import sys
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+
+
 def resolve_placeholders(clients, template):
     """
     Resolves placeholders in JSON files to an actual string.
@@ -28,6 +35,8 @@ def resolve_placeholders(clients, template):
     mappings["webacl"] = [item for sublist in mappings["webacl"] for item in sublist]
     mappings["webacl-v2"] = [item for sublist in mappings["webacl-v2"] for item in sublist]
 
+    logging.info("Rules detected %s", mappings)
+
     for element_type in mappings:
         for element in mappings[element_type]:
             if element_type == "rules":
@@ -41,6 +50,8 @@ def resolve_placeholders(clients, template):
 
     template = template.replace("WEBACL_CUSTOM_MAPPINGS", webacls_mappings)
     template = template.replace("RULE_CUSTOM_MAPPINGS", rules_mappings)
+
+    logging.info("Full template: %s", template)
 
     return template
 
