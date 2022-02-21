@@ -11,7 +11,7 @@ class ServiceSettings:
                  host=os.environ['ES_ENDPOINT'],
                  aws_auth=None,
                  service='es'):
-        self.dashboards_port = os.environ.get("DASHBOARDS_PORT", "")
+        self.dashboards_port = os.environ.get("DASHBOARDS_PORT", "443")
         self.account_id = account_id
         self.region = region
         self.host = host

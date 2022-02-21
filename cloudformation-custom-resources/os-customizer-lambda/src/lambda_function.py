@@ -129,13 +129,8 @@ def call_dashboards_api_for_resource(method, resource_type, resource_name, resou
     @param resource_name: name of the resource to be created
     @param resource_body: stringified JSON body
     """
-    f = furl(service_settings.host)
+    f = furl(scheme="https", host=service_settings.host, port=service_settings.dashboards_port)
     f.add(path=['_dashboards', 'api', 'saved_objects', resource_type, resource_name])
-
-    if service_settings.dashboards_port:
-        f.port = service_settings.dashboards_port
-    else:
-        f.port = 443
 
     logging.info("Issuing %s to %s", method, f.url)
 
