@@ -32,7 +32,7 @@ try:
     logger.info("OpenSearch client URL %s", service_settings.host)
 
     opensearch_client = OpenSearch(
-        hosts=[{'host': service_settings.host}],
+        hosts=[{'host': service_settings.host, 'port': 443}],
         http_auth=service_settings.aws_auth,
         use_ssl=True,
         verify_certs=True,
@@ -134,6 +134,8 @@ def call_dashboards_api_for_resource(method, resource_type, resource_name, resou
 
     if service_settings.dashboards_port:
         f.port = service_settings.dashboards_port
+    else:
+        f.port = 443
 
     logging.info("Issuing %s to %s", method, f.url)
 
