@@ -30,7 +30,7 @@ class ServiceSettings:
         self.dashboards_api_resource_types = {
             "dashboards": "dashboard",
             "templates": "template",
-            "index_patterns": "index_pattern",
+            "index_patterns": "index-pattern",
             "visualizations": "visualization"
         }
 

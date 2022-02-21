@@ -65,6 +65,7 @@ def update(event=None, context=None):
 
     service_settings.source_settings_from_event(event)
     recycle_dashboards_objects()
+    return "MyResourceId"
 
 
 @helper.delete
@@ -75,6 +76,7 @@ def delete(event=None, context=None):
     service_settings.source_settings_from_event(event)
     delete_index_templates()
     delete_dashboards_objects()
+    return True
 
 
 @helper.poll_create
