@@ -64,7 +64,7 @@ def placeholder_resolver(condition_var, condition_val, return_val):
     @param return_val: return component in the script
     @return: Interpolated string
     """
-    return "if ({condition_var} == \\\"{condition_val}\\\") {{ return \\\"{return_val}\\\";}}\\n ".format(
+    return "if ({condition_var} == \\\\\\\"{condition_val}\\\\\\\") {{ return \\\\\\\"{return_val}\\\\\\\";}}\\\\n ".format(
         condition_var=condition_var,
         condition_val=condition_val,
         return_val=return_val)
